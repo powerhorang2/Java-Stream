@@ -1,14 +1,17 @@
 package stream;
 
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 public class Main {
 
     public static void main(String[] args) {
-        // 가변 매개변수에서 스트림 생성
-        // Stream 클래스의 of() 메소드를 사용하면 가변 매개변수(variable parameter)를 전달받아 스트림을 생성할 수 있습니다.
-        Stream<Double> stream = Stream.of(4.2, 2.5, 3.1, 1.9);
-        stream.forEach(System.out::println);
+        // 지정된 범위의 연속된 정수에서 스트림 생성
+        IntStream stream1 = IntStream.range(1, 4); // range: a ~ b-1
+        stream1.forEach(e -> System.out.print(e + " "));
+        System.out.println();
+
+        IntStream stream2 = IntStream.rangeClosed(1, 4); // rangeClosed: a ~ b
+        stream2.forEach(e -> System.out.print(e + " "));
     }
 
 }
