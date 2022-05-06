@@ -1,17 +1,15 @@
 package stream;
 
+import java.util.Random;
 import java.util.stream.IntStream;
 
 public class Main {
 
     public static void main(String[] args) {
-        // 지정된 범위의 연속된 정수에서 스트림 생성
-        IntStream stream1 = IntStream.range(1, 4); // range: a ~ b-1
-        stream1.forEach(e -> System.out.print(e + " "));
-        System.out.println();
-
-        IntStream stream2 = IntStream.rangeClosed(1, 4); // rangeClosed: a ~ b
-        stream2.forEach(e -> System.out.print(e + " "));
+        // 특정 타입의 난수로 이루어진 스트림 생성
+        IntStream stream = new Random().ints(4);
+        // IntStream stream = new Random().ints().limit(4);
+        stream.forEach(System.out::println);
     }
 
 }
