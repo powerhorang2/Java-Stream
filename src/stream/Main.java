@@ -1,17 +1,19 @@
 package stream;
 
-import java.util.stream.IntStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) {
-        // iterate() 메소드는 시드(seed)로 명시된 값을 람다 표현식에 사용하여 반환된 값을 다시 시드로 사용하는 방식으로 무한 스트림을 생성합니다.
-        IntStream stream1 = IntStream.iterate(1, n -> n + 2).limit(50);// 2, 4, 6, 8, 10, 12, ...
-        stream1.forEach(System.out::println);
-
-        // 반면에 generate() 메소드는 매개변수가 없는 람다 표현식을 사용하여 반환된 값으로 무한 스트림을 생성합니다.
-        IntStream stream2 = IntStream.generate(() -> 1).limit(100);
-        stream2.forEach(System.out::println);
+    public static void main(String[] args) throws IOException {
+        /*
+        파일의 한 행(line)을 요소로 하는 스트림을 생성하기 위해 java.nio.file.Files 클래스에는 lines() 메소드가 정의되어 있습니다.
+        또한, java.io.BufferedReader 클래스의 lines() 메소드를 사용하면 파일뿐만 아니라 다른 입력으로부터도 데이터를 행(line) 단위로 읽어 올 수 있습니다.
+        */
+        String path = "어떤 파일의 경로 값";
+        Stream<String> stream = Files.lines(Paths.get(path));
     }
 
 }
