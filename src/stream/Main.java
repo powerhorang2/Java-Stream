@@ -1,33 +1,27 @@
 package stream;
 
-import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
 
 public class Main {
 
     public static void main(String[] args) {
         /*
-        get() 메소드를 사용하면 Optional 객체에 저장된 값에 접근할 수 있습니다.
-        만약 Optional 객체에 저장된 값이 null 이면, NoSuchElementException 예외가 발생합니다.
-        따라서 get() 메소드를 호출하기 전에 isPresent() 메소드를 사용하여 Optional 객체에 저장된 값이 null 인지 아닌지를 먼저 확인한 후 호출하는 것이 좋습니다.
-         */
-        Optional<String> opt = Optional.ofNullable("자바 Optional 객체");
+        자바에서는 IntStream 클래스와 같이 기본 타입 스트림을 위한 별도의 Optional 클래스를 제공하고 있습니다.
 
-        if(opt.isPresent()) {
-            System.out.println(opt.get());
-        }
+        1. OptionalInt 클래스
+        2. OptionalLong 클래스
+        3. OptionalDouble 클래스
 
-        /*
-        또한, 다음과 같은 메소드를 사용하여 null 대신에 대체할 값을 지정할 수도 있습니다.
+        이러한 클래스는 반환 타입이 Optional<T> 타입이 아니라 해당 기본 타입이라는 사실만 제외하면 거의 모든 면에서 비슷합니다.
 
-        1. orElse() 메소드 : 저장된 값이 존재하면 그 값을 반환하고, 값이 존재하지 않으면 인수로 전달된 값을 반환함.
-        2. orElseGet() 메소드 : 저장된 값이 존재하면 그 값을 반환하고, 값이 존재하지 않으면 인수로 전달된 람다 표현식의 결괏값을 반환함.
-        3. orElseThrow() 메소드 : 저장된 값이 존재하면 그 값을 반환하고, 값이 존재하지 않으면 인수로 전달된 예외를 발생시킴.
+        또한, Optional 객체에서 get() 메소드를 사용하여 저장된 값에 접근할 수 있는 것처럼 클래스별로 저장된 값에 접근할 수 있는 메소드를 제공하고 있습니다.
          */
 
-        Optional<Object> emptyOpt = Optional.empty(); // Optional 를 null 로 초기화함.
+        IntStream stream = IntStream.of(4, 2, 1, 3);
+        OptionalInt result = stream.findFirst();
 
-        System.out.println(emptyOpt.orElse("빈 Optional 객체"));
-        System.out.println(emptyOpt.orElseGet(String::new));
+        System.out.println(result.getAsInt());
     }
 
 }
