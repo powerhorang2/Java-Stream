@@ -6,15 +6,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BigDecimal value1 = BigDecimal.valueOf(83);
-        BigDecimal value2 = BigDecimal.valueOf(3);
-
         /*
-        reminder 메서드로 나눗셈 결과의 나머지도 구할 수 있다.
+        compareTo 메서드를 사용하여 서로 비교할 수 있다.
+        파라미터로 전달되는 값보다 작은 경우 -1, 큰 경우 1 그리고 같은 경우 0을 반환한다.
          */
 
-        BigDecimal remainderValue = value1.remainder(value2);
-        System.out.println(remainderValue);
+        BigDecimal value = BigDecimal.valueOf(10);
+
+        // 0
+        System.out.println(value.compareTo(BigDecimal.TEN));
+
+        // 1
+        System.out.println(value.compareTo(BigDecimal.ONE));
+
+        // -1
+        System.out.println(BigDecimal.ONE.compareTo(value));
     }
 
 }
