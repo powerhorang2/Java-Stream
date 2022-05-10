@@ -6,10 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BigDecimal value = BigDecimal.valueOf(12.23);
+        BigDecimal value = BigDecimal.valueOf(0.1);
 
-        // 13.23
-        BigDecimal returnValue = value.add(BigDecimal.ONE);
+        // 0.01
+        BigDecimal returnValue = value.multiply(BigDecimal.valueOf(0.1));
         System.out.println(returnValue);
     }
 
