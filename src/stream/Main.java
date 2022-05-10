@@ -1,27 +1,21 @@
 package stream;
 
-import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class Main {
 
     public static void main(String[] args) {
         /*
-        findFirst()와 findAny() 메소드는 해당 스트림에서 첫 번째 요소를 참조하는 Optional 객체를 반환합니다.
-        두 메소드 모두 비어 있는 스트림에서는 비어있는 Optional 객체를 반환합니다.
+        1. anyMatch() : 해당 스트림의 일부 요소가 특정 조건을 만족할 경우에 true 를 반환함.
+        2. allMatch() : 해당 스트림의 모든 요소가 특정 조건을 만족할 경우에 true 를 반환함.
+        3. noneMatch() : 해당 스트림의 모든 요소가 특정 조건을 만족하지 않을 경우에 true 를 반환함.
+        세 메소드 모두 인수로 Predicate 객체를 전달받으며, 요소의 검사 결과는 boolean 값으로 반환합니다.
          */
-        IntStream stream1 = IntStream.of(4, 2, 7, 3, 5, 1, 6);
-        IntStream stream2 = IntStream.of(4, 2, 7, 3, 5, 1, 6);
+        IntStream stream1 = IntStream.of(30, 90, 70, 10);
+        IntStream stream2 = IntStream.of(30, 90, 70, 10);
 
-        OptionalInt result1 = stream1.sorted().findFirst();
-        System.out.println(result1.getAsInt());
-
-        OptionalInt result2 = stream2.sorted().findAny();
-        System.out.println(result2.getAsInt());
-        /*
-        위의 예제에서 볼 수 있듯이 두 메소드의 결과는 같게 출력됩니다.
-        하지만 병렬 스트림인 경우에는 findAny() 메소드를 사용해야만 정확한 연산 결과를 반환할 수 있습니다.
-         */
+        System.out.println(stream1.anyMatch(n -> n > 80));
+        System.out.println(stream2.allMatch(n -> n > 80));
     }
 
 }
