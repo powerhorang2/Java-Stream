@@ -7,20 +7,16 @@ public class Main {
     public static void main(String[] args) {
 
         /*
-        compareTo 메서드를 사용하여 서로 비교할 수 있다.
-        파라미터로 전달되는 값보다 작은 경우 -1, 큰 경우 1 그리고 같은 경우 0을 반환한다.
+        최댓값은 max, 최솟값은 min 메서드를 사용하면 전달되는 파라미터와 비교하여 구할 수 있다.
          */
 
         BigDecimal value = BigDecimal.valueOf(10);
 
-        // 0
-        System.out.println(value.compareTo(BigDecimal.TEN));
+        // 10
+        System.out.println(value.max(BigDecimal.ONE));
 
         // 1
-        System.out.println(value.compareTo(BigDecimal.ONE));
-
-        // -1
-        System.out.println(BigDecimal.ONE.compareTo(value));
+        System.out.println(value.min(BigDecimal.ONE));
     }
 
 }
