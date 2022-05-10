@@ -6,11 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BigDecimal value = BigDecimal.valueOf(0.1);
+        BigDecimal value1 = BigDecimal.valueOf(0.12);
+        BigDecimal value2 = BigDecimal.valueOf(0.3);
 
-        // 0.01
-        BigDecimal returnValue = value.multiply(BigDecimal.valueOf(0.1));
-        System.out.println(returnValue);
+        BigDecimal divideValue = value1.divide(value2);
+        System.out.println(divideValue);
     }
 
 }
