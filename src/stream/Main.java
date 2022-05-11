@@ -4,35 +4,19 @@ public class Main {
 
     public static void main(String[] args) {
         /*
-        명시적 타입 변환이란 사용자가 타입 캐스트 연산자(())를 사용하여 강제적으로 수행하는 타입 변환을 가리킵니다.
+        instanceof 연산자는 참조 변수가 참조하고 있는 인스턴스의 실제 타입을 반환해 줍니다.
+        즉, 해당 객체가 어떤 클래스나 인터페이스로부터 생성되었는지를 판별해 주는 역할을 합니다.
 
-        자바에서는 다음과 같이 명시적 타입 변환을 수행할 수 있습니다.
-        - 문법: (변환할타입) 변환할데이터
-
-        변환시키고자 하는 데이터의 앞에 괄호(())를 넣고, 그 괄호 안에 변환할 타입을 적으면 됩니다.
-        자바에서는 이 괄호를 타입 캐스트(type cast) 연산자라고 합니다.
+        instanceof 연산자는 왼쪽 피연산자인 인스턴스가 오른쪽 피연산자인 클래스나 인터페이스로부터 생성되었으면 true 를 반환하고, 그렇지 않으면 false 를 반환합니다.
          */
 
-        int num1 = 1, num2 = 4;
+        A a = new A();
+        B b = new B();
 
-        double result1 = num1 / num2; // 1번
-        double result2 = (double) num1 / num2; // 2번
-
-        System.out.println(result1);
-        System.out.println(result2);
-
-        /*
-        위 예제의 1번 라인에서 나눗셈 연산의 결과로는 0이 반환됩니다.
-        자바에서 산술 연산을 수행하고 얻는 결괏값의 타입은 언제나 피연산자의 타입과 일치해야 합니다.
-        즉, int 형 데이터끼리의 산술 연산에 대한 결괏값은 언제나 int 형 데이터의 결과로 나오게 됩니다.
-
-        따라서 1 나누기 4의 결과로는 0.25가 반환되지만, int 형으로 자동 타입 변환되어 0이 반환되게 됩니다.
-        그리고서 double 형 변수에 그 결과가 대입될 때, double 형으로 자동 타입 변환되어 0.0이라는 결과가 출력되게 됩니다.
-
-        따라서 정확한 결과를 얻고자 한다면 2번 라인처럼 피연산자 중 하나의 타입을 double 형으로 강제 타입 변환해야 합니다.
-        이렇게 피연산자 중 하나의 타입이 double 형이 되면, 나눗셈 연산을 위해 나머지 하나의 피연산자도 double 형으로 자동 타입 변환됩니다.
-        따라서 그 결과 또한 double 형인 0.25가 될 것이며, 이 결과가 double 형 변수에 제대로 대입될 것입니다.
-         */
+        System.out.println(a instanceof A); // true
+        System.out.println(b instanceof A); // true
+        System.out.println(a instanceof B); // false
+        System.out.println(b instanceof B); // true
 
     }
 
