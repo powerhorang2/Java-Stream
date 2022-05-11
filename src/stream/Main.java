@@ -4,20 +4,26 @@ public class Main {
 
     public static void main(String[] args) {
         /*
-        instanceof 연산자는 참조 변수가 참조하고 있는 인스턴스의 실제 타입을 반환해 줍니다.
-        즉, 해당 객체가 어떤 클래스나 인터페이스로부터 생성되었는지를 판별해 주는 역할을 합니다.
+        일반적인 break 문은 단 하나의 반복문만을 빠져나가게 해줍니다.
+        따라서 여러 반복문이 중첩된 상황에서 한 번에 모든 반복문을 빠져나가거나, 특정 반복문까지만 빠져나가고 싶을 때는 다른 방법을 사용해야 합니다.
 
-        instanceof 연산자는 왼쪽 피연산자인 인스턴스가 오른쪽 피연산자인 클래스나 인터페이스로부터 생성되었으면 true 를 반환하고, 그렇지 않으면 false 를 반환합니다.
+        이때 사용할 수 있는 방법이 바로 반복문에 이름(label)을 설정하는 것입니다.
+        가장 바깥쪽 반복문이나 빠져나가고 싶은 특정 반복문에 이름을 설정한 후, break 키워드 다음에 해당 이름을 명시하면 됩니다.
+        그러면 해당 break 키워드는 현재 반복문이 아닌 해당 이름의 반복문 바로 다음으로 프로그램의 실행을 옮겨줍니다.
+
+        단, 이때 이름(label)은 가리키고자 하는 반복문의 키워드 바로 앞에 위치해야 합니다.
+        이름과 반복문의 키워드 사이에 명령문이 존재하면, 자바 컴파일러는 오류를 발생시킬 것입니다.
          */
 
-        A a = new A();
-        B b = new B();
-
-        System.out.println(a instanceof A); // true
-        System.out.println(b instanceof A); // true
-        System.out.println(a instanceof B); // false
-        System.out.println(b instanceof B); // true
-
+        allLoop:
+        for (int i = 2; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                if (i == 5) {
+                    break allLoop;
+                }
+                System.out.println(i + "*" + j + " = " + (i * j));
+            }
+        }
     }
 
 }
